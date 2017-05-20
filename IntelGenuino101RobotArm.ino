@@ -1,4 +1,3 @@
-
 /*
  차량 장착용 수평집게
 */
@@ -19,10 +18,8 @@ void Accelerometer(){
 	// 가속기 최소 최대 범위 제한 설정
 	if(x > 15000)  x=13000;
 	if(x < -15000) x=-13000;
-//	if(y > 15000)  y=13000;
-//	if(y < -15000) y=-13000;
-//  if(z > 15000)  z=13000;
-//  if(z < -15000) z=-13000;
+	if(y > 15000)  x=13000;
+	if(y < -15000) x=-13000;
 
 	// 가속기 최대 최소값을 0~179 범위내로 변환
 	accX = map(x, -13000, 13000, 10, 169);
@@ -30,13 +27,7 @@ void Accelerometer(){
 
 	servo1.write(accX); // 변환된 X 값 서보에 적용 동작
 	servo2.write(accY); // 변환된 X 값 서보에 적용 동작
-  
-//  Serial.print(x);
-//  Serial.print(" / ");
-//  Serial.print(y);
-//  Serial.print(" / ");
-//  Serial.print(z);  
-//  Serial.print("       ");
+
 	Serial.print(accX);
 	Serial.print(" / ");
 	Serial.println(accY);
